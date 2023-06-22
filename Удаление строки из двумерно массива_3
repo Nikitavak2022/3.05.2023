@@ -1,0 +1,22 @@
+int main()
+{
+    int n, m, k;
+    int **a = creat(n,m);
+    print (a, n, m);
+    cout << "k = ";
+    cin >> k;
+    if (k < 0 || k > n-1)
+        cout << "error";
+        else
+        {
+            delete [] a[k];
+            for (int i = k; i < n-1; ++i)
+                a[i] = a[i = 1];
+            a[n = 1] = NULL;
+            --n;
+            print(a, n, m);
+        }
+
+deleteMas(a, n);
+return 0;
+}
