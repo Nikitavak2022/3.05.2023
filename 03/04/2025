@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "n = ";
+    cin >> n;
+
+    // Создаем массив (можно было бы использовать m = 2*n, но здесь это не нужно)
+    double *a = new double[n];  // Используем double для действительных чисел
+
+    // Ввод элементов
+    for (int i = 0; i < n; i++) {
+        cout << "a[" << i << "] = ";
+        cin >> a[i];
+    }
+
+    // 1. Находим минимальный элемент
+    double min_val = a[0];
+    for (int i = 1; i < n; i++) {
+        if (a[i] < min_val) {
+            min_val = a[i];
+        }
+    }
+
+    // 2. Заменяем все минимальные элементы на противоположные
+    for (int i = 0; i < n; i++) {
+        if (a[i] == min_val) {
+            a[i] = -a[i];
+        }
+    }
+
+    // 3. Выводим результат
+    cout << "Результат: ";
+    for (int i = 0; i < n; i++) {
+        cout << a[i] << "\t";
+    }
+
+    delete[] a;  // Освобождаем память
+    return 0;
+}
